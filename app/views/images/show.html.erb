@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ark:</strong>
+  <%= @image.ark %>
+</p>
+
+<p>
+  <strong>Bibid:</strong>
+  <%= @image.bibid %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @image.publisher %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @image.author %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @image.year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @image.description %>
+</p>
+
+<p>
+  <strong>Add date:</strong>
+  <%= @image.add_date %>
+</p>
+
+<p>
+  <strong>Upd date:</strong>
+  <%= @image.upd_date %>
+</p>
+
+<p>
+  <strong>Copyright:</strong>
+  <%= @image.copyright %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
