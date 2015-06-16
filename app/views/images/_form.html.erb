@@ -1,20 +1,13 @@
-<%= simple_form_for(@image) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :ark %>
-    <%= f.input :bibid %>
-    <%= f.input :title %>
-    <%= f.input :publisher %>
-    <%= f.input :author %>
-    <%= f.input :year %>
-    <%= f.input :description %>
-    <%= f.input :add_date %>
-    <%= f.input :upd_date %>
-    <%= f.input :copyright %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
+  <%= f.text_field :bibid, control_col: "col-sm-3"  %>
+  <%= f.text_field :year, control_col: "col-sm-3" %>
+  <%= f.text_area :title %>
+  <%= f.text_area :publisher %>
+  <%= f.text_area :author %>
+  <%= f.text_area :description %>
+  <%= f.form_group do %>
+    <%= f.primary "Save"%>
+    <%= link_to('Cancel', images_path, :class => 'btn btn-default', :role => "button")%>
+  <% end %>
 <% end %>

@@ -1,54 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">  
+    <div class="page-header">
+      <h1>Image <%= @image.id %></h1>
+    </div>
+    <div class="well">
+      <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
+        <%= f.static_control :ark %>
+        <%= f.static_control :bibid, control_col: "col-sm-3"  %>
+        <%= f.static_control :year, control_col: "col-sm-3" %>
+        <%= f.static_control :title %>
+        <%= f.static_control :publisher %>
+        <%= f.static_control :author %>
+        <%= f.static_control :description %>
+        <%= f.form_group do %>
+          <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-primary active', :role => "button")%>
+          <%= link_to('Back', images_path, :class => 'btn btn-default active', :role => "button")%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Ark:</strong>
-  <%= @image.ark %>
-</p>
 
-<p>
-  <strong>Bibid:</strong>
-  <%= @image.bibid %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @image.publisher %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @image.author %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @image.year %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
-
-<p>
-  <strong>Add date:</strong>
-  <%= @image.add_date %>
-</p>
-
-<p>
-  <strong>Upd date:</strong>
-  <%= @image.upd_date %>
-</p>
-
-<p>
-  <strong>Copyright:</strong>
-  <%= @image.copyright %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>

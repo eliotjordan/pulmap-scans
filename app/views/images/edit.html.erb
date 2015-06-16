@@ -1,6 +1,17 @@
-<h1>Editing Image</h1>
 
-<%= render 'form' %>
+<div class="row">
+	<div class="col-lg-6 col-lg-offset-3">
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+	<div class="page-header">
+		<h1>Edit Image <%= @image.id %></h1>
+	</div>
+
+	<div class="well">
+		<%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
+		  <%= f.static_control :ark %>
+		<% end %>
+		<%= render 'form' %>
+	</div>
+
+	</div>
+</div>
