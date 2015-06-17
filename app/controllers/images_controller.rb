@@ -3,9 +3,16 @@ class ImagesController < ApplicationController
 
   # GET /images
   # GET /images.json
+
+  # Paging
   def index
-    @images = Image.all
+    @images = Image.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
   end
+
+  # def index
+    # @images = Image.all
+    # @images = Image.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+  # end
 
   # GET /images/1
   # GET /images/1.json

@@ -1,45 +1,74 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ark</th>
-      <th>Bibid</th>
-      <th>Title</th>
-      <th>Publisher</th>
-      <th>Author</th>
-      <th>Year</th>
-      <th>Description</th>
-      <th>Add date</th>
-      <th>Upd date</th>
-      <th>Copyright</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.ark %></td>
-        <td><%= image.bibid %></td>
-        <td><%= image.title %></td>
-        <td><%= image.publisher %></td>
-        <td><%= image.author %></td>
-        <td><%= image.year %></td>
-        <td><%= image.description %></td>
-        <td><%= image.add_date %></td>
-        <td><%= image.upd_date %></td>
-        <td><%= image.copyright %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_tag images_path, :method => "get", :class => 'form-inline' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search scanned maps..." %>
+        <span class="input-group-btn">
+          <button class="btn btn-default active" type="submit"><span class="glyphicon glyphicon-search"></button>
+        </span>
+      </div>
+      <%= link_to 'Clear', images_path, :role => "button", :class => 'btn btn-default active' %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to 'New Image', new_image_path, :role => "button", :class => 'btn btn-success active pull-right' %>
+  </div>
+</div>
 
-<br>
+<hr>
 
-<%= link_to 'New Image', new_image_path %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <table class="table table-bordered table-striped" id="sortable">
+        <thead>
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              ARK
+            </th>
+            <th>
+              Title
+            </th>
+            <th>
+              Publisher
+            </th>
+            <th>
+              Pub Info
+            </th>
+            <th>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @images.each do |image| %>
+            <tr data-item-id=<%= "#{image.id}" %> class="item">
+              <td>
+                <%= image.id %>
+              </td>
+              <td class="col-md-1">
+                <%= image.ark %>
+              </td>
+              <td>
+                <%= image.title %>
+              </td>
+              <td>
+                <%= image.author %>
+              </td>
+              <td>
+                <%= image.pubinfo %>
+              </td>
+              <td class="col-md-1">
+                  <%= link_to 'Show', image_path(image), :role => "button", :class => 'btn btn-info active' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= will_paginate @images, renderer: BootstrapPagination::Rails %>
+

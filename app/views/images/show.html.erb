@@ -3,21 +3,18 @@
     <div class="page-header">
       <h1>Image <%= @image.id %></h1>
     </div>
-    <div class="well">
-      <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
-        <%= f.static_control :ark %>
-        <%= f.static_control :bibid, control_col: "col-sm-3"  %>
-        <%= f.static_control :year, control_col: "col-sm-3" %>
-        <%= f.static_control :title %>
-        <%= f.static_control :publisher %>
-        <%= f.static_control :author %>
-        <%= f.static_control :description %>
-        <%= f.form_group do %>
-          <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-primary active', :role => "button")%>
-          <%= link_to('Back', images_path, :class => 'btn btn-default active', :role => "button")%>
-        <% end %>
-      <% end %>
-    </div>
+    <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
+      <%= f.static_control :ark %>
+      <%= f.static_control :bibid, control_col: "col-sm-3"  %>
+      <%= f.static_control :pubinfo, control_col: "col-sm-3" %>
+      <%= f.static_control :title %>
+      <%= f.static_control :publisher %>
+      <%= f.static_control :author %>
+      <%= f.static_control :description %>
+      <%= link_to('Back', images_path, :class => 'btn btn-primary active', :role => "button")%>
+      <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-warning active', :role => "button")%>
+      <%= link_to 'Delete', @image, method: :delete, data: { confirm: 'Are you sure?' }, :role => "button", :class => 'btn btn-danger active' %>
+    <% end %>
   </div>
 </div>
 

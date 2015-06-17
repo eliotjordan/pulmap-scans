@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615232542) do
+ActiveRecord::Schema.define(version: 20150619161837) do
 
   create_table "images", force: :cascade do |t|
     t.text     "ark"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150615232542) do
     t.boolean  "copyright"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "pubinfo"
   end
 
   add_index "images", ["ark"], name: "index_images_on_ark", unique: true
