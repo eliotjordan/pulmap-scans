@@ -6,10 +6,14 @@ class CreateImages < ActiveRecord::Migration
       t.string :title
       t.text :publisher
       t.text :author
-      t.integer :year
       t.text :description
-      t.datetime :add_date
-      t.datetime :upd_date
+      t.text :pub_info
+      t.integer :year
+      t.text :bbox_source
+      t.text :bbox
+      t.text :ingested
+      t.text :georefed
+      t.text :image_status
       t.boolean :copyright
 
       t.timestamps null: false
