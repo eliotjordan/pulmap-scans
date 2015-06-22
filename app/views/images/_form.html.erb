@@ -2,12 +2,11 @@
 <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
   <%= f.text_field :bibid, control_col: "col-sm-3" %>
   <%= f.text_field :pub_info, control_col: "col-sm-3" %>
-  <%= f.text_area :title %>
+  <%= f.text_area :title, rows: "3" %>
   <%= f.text_area :publisher %>
   <%= f.text_area :author %>
-  <%= f.text_area :description %>
-  <%= f.form_group do %>
-    <%= f.primary "Save"%>
-    <%= link_to('Cancel', images_path, :class => 'btn btn-default', :role => "button")%>
-  <% end %>
+  <%= f.text_area :description, rows: "4" %>
+  <hr>
+  <%= f.primary "Save"%>
+  <%= link_to('Cancel', images_path, :class => 'btn btn-default', :role => "button")%>
 <% end %>

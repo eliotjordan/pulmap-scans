@@ -1,10 +1,8 @@
 
 <div class="row">
 	<div class="col-lg-6 col-lg-offset-3">
-
-	<div class="page-header">
-		<h1>Edit Image <%= @image.id %></h1>
-	</div>
+	<h1>Edit Image <%= @image.id %></h1>
+	<hr>
 		<%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
 		  <%= f.static_control :ark %>
 		<% end %>
