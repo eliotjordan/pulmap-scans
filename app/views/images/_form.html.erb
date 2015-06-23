@@ -1,7 +1,7 @@
 
 <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
   <%= f.text_field :bibid, control_col: "col-sm-3" %>
-  <%= f.text_field :pub_info, control_col: "col-sm-3" %>
+  <%= f.text_field :pub_info %>
   <%= f.text_area :title, rows: "3" %>
   <%= f.text_area :publisher %>
   <%= f.text_area :author %>

@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   validates :title, presence: true
-  validates :bibid, numericality: { only_integer: true,
+  validates :bibid, :allow_blank => true, numericality: { only_integer: true,
     message:"not a valid bidid" }
 
   def self.search(search)

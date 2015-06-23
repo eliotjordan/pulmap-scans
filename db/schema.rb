@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150615232542) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "images", force: :cascade do |t|
     t.text     "ark"
     t.integer  "bibid"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150615232542) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "images", ["ark"], name: "index_images_on_ark", unique: true
+  add_index "images", ["ark"], name: "index_images_on_ark", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -62,10 +65,10 @@ ActiveRecord::Schema.define(version: 20150615232542) do
     t.integer  "invitations_count",      default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
