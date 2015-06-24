@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
+  # before_action :authenticate_user!
+  # before_action :correct_user?, :except => [:index]
 
   def index
     @users = User.all
@@ -7,9 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
   end
 
 end

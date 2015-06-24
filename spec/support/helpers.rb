@@ -1,4 +1,5 @@
-require 'support/helpers/session_helpers'
 RSpec.configure do |config|
-  config.include Features::SessionHelpers, type: :feature
+  config.include Omniauth::Mock
+  config.include Omniauth::SessionHelpers, type: :feature
 end
+OmniAuth.config.test_mode = true

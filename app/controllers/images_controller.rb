@@ -1,5 +1,12 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  # before_filter :auth_user
+  # before_action :authenticate_user!, :except => [:index]
+  # before_action :set_image, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  
+  def auth_user
+    redirect_to '/users/auth/cas' unless user_signed_in?
+  end
 
   # GET /images
   # GET /images.json
@@ -71,6 +78,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:ark, :bibid, :title, :publisher, :author, :year, :description, :add_date, :upd_date, :copyright)
+      params.require(:image).permit(:ark, :bibid, :title, :pub_info, :publisher, :author, :year, :description, :add_date, :upd_date, :copyright)
     end
 end

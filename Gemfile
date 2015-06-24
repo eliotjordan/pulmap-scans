@@ -11,15 +11,18 @@ gem 'bootstrap_form'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'jquery-ui-rails'
 gem 'will_paginate-bootstrap'
+gem 'pg'
+gem 'thin'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 gem 'bootstrap-sass'
-gem 'devise'
-gem 'devise_invitable'
-gem 'simple_form'
+gem 'high_voltage'
+gem 'omniauth'
+gem 'omniauth-cas'
+gem 'cancancan', '~> 1.10'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -30,10 +33,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
-end
-group :production do
-  gem 'thin'
-  gem 'pg'
 end
 group :test do
   gem 'capybara'

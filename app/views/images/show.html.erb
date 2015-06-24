@@ -4,19 +4,22 @@
     <h1>Image <%= @image.id %></h1>
     <hr>  
     <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
-      <%= f.static_control :ark %>
+<!--       <%= f.static_control :ark %> -->
       <%= f.static_control :bibid, control_col: "col-sm-3"  %>
       <%= f.static_control :pub_info, control_col: "col-sm-3" %>
       <%= f.static_control :title %>
       <%= f.static_control :publisher %>
       <%= f.static_control :author %>
       <%= f.static_control :description %>
+      <% if @image.bbox != nil && @image.bbox != '' %>
+        <%= f.static_control :bbox %>
+      <% end %>
       <hr>
       <%= link_to('Back', images_path, :class => 'btn btn-primary active', :role => "button")%>
-      <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-warning active', :role => "button")%>
-      <%= link_to 'Delete', @image, method: :delete, data: { confirm: 'Are you sure?' }, :role => "button", :class => 'btn btn-danger active' %>
+      <% if can? :update, @image %>
+        <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-warning active', :role => "button")%>
+        <%= link_to 'Delete', @image, method: :delete, data: { confirm: 'Are you sure?' }, :role => "button", :class => 'btn btn-danger active' %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-

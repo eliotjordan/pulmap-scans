@@ -10,9 +10,11 @@
       <%= link_to 'Clear', images_path, :role => "button", :class => 'btn btn-default active' %>
     <% end %>
   </div>
-  <div class="col-sm-6">
-    <%= link_to 'New Image', new_image_path, :role => "button", :class => 'btn btn-success active pull-right' %>
-  </div>
+  <% if can? :create, @image %>
+    <div class="col-sm-6">
+      <%= link_to 'New Image', new_image_path, :role => "button", :class => 'btn btn-success active pull-right' %>
+    </div>
+  <% end %>
 </div>
 
 <hr>
@@ -26,8 +28,11 @@
             <th>
               ID
             </th>
-            <th>
+<!--             <th>
               ARK
+            </th> -->
+            <th>
+              Bib ID
             </th>
             <th>
               Title
@@ -49,7 +54,8 @@
                 <%= image.id %>
               </td>
               <td class="col-md-1">
-                <%= image.ark %>
+                <!-- <%= image.ark %> -->
+                <%= image.bibid %>
               </td>
               <td>
                 <%= image.title %>
