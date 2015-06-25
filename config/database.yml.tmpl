@@ -18,6 +18,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: images_production
-  username: images
+  host: <%= ENV['IMAGES_DATABASE_HOST'] %>
+  database: <%= ENV['IMAGES_DATABASE'] %>
+  username: <%= ENV['IMAGES_DATABASE_USERNAME'] %>
   password: <%= ENV['IMAGES_DATABASE_PASSWORD'] %>
