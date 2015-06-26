@@ -32,14 +32,14 @@ RUN apt-get update && apt-get -y install \
     libffi-dev
 
 # Install ruby
-RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && \
-    tar -zxvf ruby-2.1.2.tar.gz && \
-    cd ruby-2.1.2 && \
+RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.2/ruby-2.2.1.tar.gz && \
+    tar -zxvf ruby-2.2.1.tar.gz && \
+    cd ruby-2.2.1 && \
     ./configure --disable-install-doc && \
     make && \
     make install && \
     cd .. && \
-    rm -r ruby-2.1.2 ruby-2.1.2.tar.gz && \
+    rm -r ruby-2.2.1 ruby-2.2.1.tar.gz && \
     echo 'gem: --no-ri --no-rdoc' > /usr/local/etc/gemrcdoc
 
 # Install rails and gems
@@ -59,7 +59,7 @@ WORKDIR /usr/src/
 # Load repo
 RUN git clone https://github.com/eliotjordan/pulmap-scans.git && \
     cd pulmap-scans/ && \ 
-    cp config/database.yml.tmpl config/database.yml
+    cp config/database.yml.tmpl config/database.yml && \
     bundle install
 
 WORKDIR /usr/src/pulmap-scans
