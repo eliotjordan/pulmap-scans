@@ -10,6 +10,13 @@ docker run -itd --name pulmapscans \
 	--env IMAGES_DATABASE_USERNAME="" \
 	--env IMAGES_DATABASE_PASSWORD="" \
 	--env SECRET_KEY_BASE="" \
-	-p 3001:3000 \
-	test/pulmap-scans
+	--env RAILS_RELATIVE_URL_ROOT="/pumapdata" \
+	-p 9005:3000 \
+	pulmap/scans
+```
+
+For Apache config
+```
+ProxyPass /pumapdata  http://localhost:9005/pumapdata
+ProxyPassReverse /pumapdata  http://localhost:9005/pumapdata
 ```

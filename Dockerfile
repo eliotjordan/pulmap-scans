@@ -66,4 +66,4 @@ WORKDIR /usr/src/pulmap-scans
 
 EXPOSE 3000
    
-CMD RAILS_ENV=production bundle exec thin start
+CMD rails s -e production -b 0.0.0.0
