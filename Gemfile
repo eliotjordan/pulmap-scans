@@ -13,6 +13,7 @@ gem 'jquery-ui-rails'
 gem 'will_paginate-bootstrap'
 gem 'pg'
 gem 'thin'
+gem 'ezid-client'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

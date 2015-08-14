@@ -28,9 +28,9 @@
             <th>
               ID
             </th>
-<!--             <th>
+            <th>
               ARK
-            </th> -->
+            </th>
             <th>
               Bib ID
             </th>
@@ -39,9 +39,6 @@
             </th>
             <th>
               Author
-            </th>
-            <th>
-              Publish Info
             </th>
             <th>
             </th>
@@ -53,8 +50,10 @@
               <td>
                 <%= image.id %>
               </td>
+              <td>
+                <%= image.ark %>
+              </td>
               <td class="col-md-1">
-                <!-- <%= image.ark %> -->
                 <%= image.bibid %>
               </td>
               <td>
@@ -62,9 +61,6 @@
               </td>
               <td>
                 <%= image.author %>
-              </td>
-              <td>
-                <%= image.pub_info %>
               </td>
               <td class="col-md-1">
                   <%= link_to 'Show', image_path(image), :role => "button", :class => 'btn btn-info active' %>

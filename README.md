@@ -11,6 +11,9 @@ docker run -itd --name pulmapscans \
 	--env IMAGES_DATABASE_PASSWORD="" \
 	--env SECRET_KEY_BASE="" \
 	--env RAILS_RELATIVE_URL_ROOT="/pumapdata" \
+	--env EZID_USER="" \
+    --env EZID_PASSWORD="" \
+    --env SECRET_KEY_BASE="" \
 	-p 9005:3000 \
 	pulmap/scans
 ```
