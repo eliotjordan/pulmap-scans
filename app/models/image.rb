@@ -51,15 +51,22 @@ class Image < ActiveRecord::Base
   # updates ark target if copyright status changes
   def update_ark
     if self.copyright_changed?
-      full_id = ENV['EZID_DEFAULT_SHOULDER'][0..-4] + self.ark
-      identifier = Ezid::Identifier.find(full_id)
+      identifier = Ezid::Identifier.find(full_ark)
       noid = identifier.id.split('/')[-1]
       identifier.target = self.target_base + noid
       identifier.save
     end
   end
 
-    # base target url for ark
+  def full_ark
+    if Rails.env.production?
+      ENV['EZID_DEFAULT_SHOULDER'] + self.ark
+    else
+      ENV['EZID_DEFAULT_SHOULDER'][0..-4] + self.ark
+    end
+  end
+
+  # base target url for ark
   def target_base
     if self.copyright == false
       ENV['EZID_TARGET_BASE']
