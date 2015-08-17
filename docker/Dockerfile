@@ -56,14 +56,8 @@ RUN curl -sL https://deb.nodesource.com/setup | sudo bash - && \
     npm install -g grunt-cli
 
 WORKDIR /usr/src/
-# Load repo
-RUN git clone https://github.com/eliotjordan/pulmap-scans.git && \
-    cd pulmap-scans/ && \ 
-    cp config/database.yml.tmpl config/database.yml && \
-    bundle install
-
-WORKDIR /usr/src/pulmap-scans
+ADD start.sh /usr/src/
 
 EXPOSE 3000
    
-CMD rails s -e production -b 0.0.0.0
+CMD /usr/src/start.sh
