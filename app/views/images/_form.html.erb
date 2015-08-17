@@ -1,13 +1,17 @@
 
 <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
   <%= f.static_control :ark %>
+  <%= f.form_group :copyright, label: { text: "Copyrighted" } do %>
+    <%= f.check_box :copyright, label: "" %>
+  <% end %>
   <%= f.text_field :bibid, control_col: "col-sm-3" %>
-  <%= f.text_field :pub_info %>
   <%= f.text_area :title, rows: "3" %>
   <%= f.text_area :publisher %>
+  <%= f.text_field :pub_info %>
+  <%= f.text_field :year, control_col: "col-sm-3" %>
   <%= f.text_area :author %>
   <%= f.text_area :description, rows: "4" %>
-  <%= f.text_area :bbox %>
+  <%= f.text_area :bbox, label: "BBBOX (W,S,E,N)" %>
   <hr>
   <%= f.primary "Save"%>
   <%= link_to('Cancel', images_path, :class => 'btn btn-default', :role => "button")%>

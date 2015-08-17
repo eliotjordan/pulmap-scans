@@ -6,13 +6,15 @@
     <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
       <%= f.static_control :ark, label: "ARK" %>
       <%= f.static_control :bibid, control_col: "col-sm-3"  %>
-      <%= f.static_control :pub_info, control_col: "col-sm-3" %>
+      <%= f.static_control :copyright %>
       <%= f.static_control :title %>
       <%= f.static_control :publisher %>
+      <%= f.static_control :pub_info, control_col: "col-sm-3" %>
+      <%= f.static_control :year, control_col: "col-sm-3" %>
       <%= f.static_control :author %>
       <%= f.static_control :description %>
       <% if @image.bbox != nil && @image.bbox != '' %>
-        <%= f.static_control :bbox %>
+        <%= f.static_control :bbox, label: "BBOX (W,S,E,N)" %>
       <% end %>
       <%= f.static_control label: "Item URL" do %>
         <%= link_to @image.item_url, @image.item_url  %>
