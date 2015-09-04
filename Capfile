@@ -16,6 +16,8 @@ require 'capistrano/rails/migrations'
 # deploy/restart task for passenger
 require 'capistrano/passenger'
 
+require 'capistrano/rvm'
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
