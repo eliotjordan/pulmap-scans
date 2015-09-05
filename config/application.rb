@@ -35,6 +35,9 @@ module RailsOmniauth
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.action_controller.relative_url_root = '/pumapdata'
+    # fixes bootstrap issues with glypicons
+    # see: http://stackoverflow.com/a/20694713
+    ENV['ASSETS_RELATIVE_ROOT'] = '/pumapdata'
+    config.action_controller.relative_url_root = ENV['ASSETS_RELATIVE_ROOT']
   end
 end
