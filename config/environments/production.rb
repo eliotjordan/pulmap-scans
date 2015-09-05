@@ -35,6 +35,10 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  # fixes bootstrap issues with glypicons 
+  # see: http://stackoverflow.com/a/20694713
+  ENV['ASSETS_RELATIVE_ROOT'] = '/pumapdata'
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
