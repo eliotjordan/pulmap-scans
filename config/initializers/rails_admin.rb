@@ -13,9 +13,18 @@ RailsAdmin.config do |config|
       end
     end
     edit do
-      field :name
-      field :role
-      field :uid
+      field :name do
+        label 'Full Name'
+        help ''
+      end
+      field :role do 
+        label 'Role'
+        help ''
+      end
+      field :uid do 
+        label 'NetID'
+        help ''
+      end
     end
   end
 

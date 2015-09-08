@@ -37,7 +37,7 @@ module RailsOmniauth
 
     # fixes bootstrap issues with glypicons
     # see: http://stackoverflow.com/a/20694713
-    ENV['ASSETS_RELATIVE_ROOT'] = '/pumapdata'
-    config.action_controller.relative_url_root = ENV['ASSETS_RELATIVE_ROOT']
+    # ENV['ASSETS_RELATIVE_ROOT'] = '/pumapdata'
+    # config.action_controller.relative_url_root = ENV['ASSETS_RELATIVE_ROOT']
   end
 end
