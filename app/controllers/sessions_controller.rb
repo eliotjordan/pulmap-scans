@@ -1,12 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    if ENV['RAILS_RELATIVE_URL_ROOT']
-      auth_url = ENV['RAILS_RELATIVE_URL_ROOT'] + '/auth/cas'
-    else
-      auth_url = '/auth/cas'
-    end
-   redirect_to auth_url
+    redirect_to root_url + 'auth/cas'
   end
 
   def create

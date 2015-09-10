@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %i[admin user]
+  ROLES = %i[admin editor user]
 
   def self.create_with_omniauth(auth)
     create! do |user|
