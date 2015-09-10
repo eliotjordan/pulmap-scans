@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817190708) do
+ActiveRecord::Schema.define(version: 20150910172843) do
+
+  create_table "geodata", force: :cascade do |t|
+    t.text     "ark"
+    t.integer  "image_id"
+    t.text     "guid"
+    t.integer  "bib_id"
+    t.text     "item_type"
+    t.text     "file_list"
+    t.boolean  "solr_doc_created", default: false
+    t.text     "solr_doc_source"
+    t.text     "bbox"
+    t.text     "bbox_source"
+    t.boolean  "ingest_geoserver", default: false
+    t.boolean  "ingest_solr",      default: false
+    t.boolean  "ingest_loris",     default: false
+    t.boolean  "copyright",        default: true
+    t.text     "access",           default: "campus"
+    t.text     "title"
+    t.text     "publisher"
+    t.text     "author"
+    t.text     "description"
+    t.text     "pub_info"
+    t.date     "year"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "geodata", ["ark"], name: "index_geodata_on_ark", unique: true
 
   create_table "images", force: :cascade do |t|
     t.text     "ark"

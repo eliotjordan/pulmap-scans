@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Geodata</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Ark</th>
+      <th>Image</th>
+      <th>Guid</th>
+      <th>Bib</th>
+      <th>Type</th>
+      <th>File list</th>
+      <th>Solr doc created</th>
+      <th>Solr doc source</th>
+      <th>Bbox</th>
+      <th>Bbox source</th>
+      <th>Ingest geoserver</th>
+      <th>Ingest solr</th>
+      <th>Ingest loris</th>
+      <th>Copyright</th>
+      <th>Access</th>
+      <th>Title</th>
+      <th>Publisher</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Pub info</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @geodata.each do |geodatum| %>
+      <tr>
+        <td><%= geodatum.id %></td>
+        <td><%= geodatum.ark %></td>
+        <td><%= geodatum.image_id %></td>
+        <td><%= geodatum.guid %></td>
+        <td><%= geodatum.bib_id %></td>
+        <td><%= geodatum.type %></td>
+        <td><%= geodatum.file_list %></td>
+        <td><%= geodatum.solr_doc_created %></td>
+        <td><%= geodatum.solr_doc_source %></td>
+        <td><%= geodatum.bbox %></td>
+        <td><%= geodatum.bbox_source %></td>
+        <td><%= geodatum.ingest_geoserver %></td>
+        <td><%= geodatum.ingest_solr %></td>
+        <td><%= geodatum.ingest_loris %></td>
+        <td><%= geodatum.copyright %></td>
+        <td><%= geodatum.access %></td>
+        <td><%= geodatum.title %></td>
+        <td><%= geodatum.publisher %></td>
+        <td><%= geodatum.author %></td>
+        <td><%= geodatum.description %></td>
+        <td><%= geodatum.pub_info %></td>
+        <td><%= geodatum.year %></td>
+        <td><%= link_to 'Show', geodatum %></td>
+        <td><%= link_to 'Edit', edit_geodatum_path(geodatum) %></td>
+        <td><%= link_to 'Destroy', geodatum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Geodatum', new_geodatum_path %>

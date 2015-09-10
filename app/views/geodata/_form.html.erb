@@ -1,0 +1,32 @@
+<%= simple_form_for(@geodatum) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :id %>
+    <%= f.input :ark %>
+    <%= f.input :image_id %>
+    <%= f.input :guid %>
+    <%= f.input :bib_id %>
+    <%= f.input :type %>
+    <%= f.input :file_list %>
+    <%= f.input :solr_doc_created %>
+    <%= f.input :solr_doc_source %>
+    <%= f.input :bbox %>
+    <%= f.input :bbox_source %>
+    <%= f.input :ingest_geoserver %>
+    <%= f.input :ingest_solr %>
+    <%= f.input :ingest_loris %>
+    <%= f.input :copyright %>
+    <%= f.input :access %>
+    <%= f.input :title %>
+    <%= f.input :publisher %>
+    <%= f.input :author %>
+    <%= f.input :description %>
+    <%= f.input :pub_info %>
+    <%= f.input :year %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :users
   resources :images
+  resources :datasets
+  resources :geodata
   root to: 'images#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
