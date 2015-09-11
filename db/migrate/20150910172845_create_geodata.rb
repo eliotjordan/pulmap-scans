@@ -21,7 +21,7 @@ class CreateGeodata < ActiveRecord::Migration
       t.text :author
       t.text :description
       t.text :pub_info
-      t.date :year
+      t.date :pub_date
 
       t.timestamps null: false
     end

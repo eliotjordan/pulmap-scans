@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910172843) do
+ActiveRecord::Schema.define(version: 20150910172845) do
 
   create_table "geodata", force: :cascade do |t|
     t.text     "ark"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150910172843) do
     t.text     "author"
     t.text     "description"
     t.text     "pub_info"
-    t.date     "year"
+    t.date     "pub_date"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

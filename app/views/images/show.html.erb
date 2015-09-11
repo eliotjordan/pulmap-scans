@@ -1,16 +1,18 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3">  
     
-    <h1>Image <%= @image.id %></h1>
+    <h1>Image: <%= @image.ark %></h1>
     <hr>  
     <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
       <%= f.static_control :ark, label: "ARK" %>
-      <%= f.static_control :bibid, control_col: "col-sm-3"  %>
+      <%= f.static_control :bib_id, control_col: "col-sm-3", label: "BibID"  %>
+      <%= f.static_control :image_id, control_col: "col-sm-3", label: "ImageID" %>
       <%= f.static_control :copyright %>
+      <%= f.static_control :access %>
       <%= f.static_control :title %>
       <%= f.static_control :publisher %>
-      <%= f.static_control :pub_info, control_col: "col-sm-3" %>
-      <%= f.static_control :year, control_col: "col-sm-3" %>
+      <%= f.static_control :pub_info, label: "Pub Info" %>
+      <%= f.static_control :pub_date, label: "Pub Date" %>
       <%= f.static_control :author %>
       <%= f.static_control :description %>
       <% if @image.bbox != nil && @image.bbox != '' %>

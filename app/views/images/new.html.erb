@@ -3,15 +3,17 @@
     <h1>Create New Image</h1>
     <hr>
     <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
-      <%= f.static_control :ark %>
+<!--       <%= f.static_control :ark %> -->
+      <%= f.text_field :bib_id, control_col: "col-sm-3" %>
+      <%= f.text_field :image_id, control_col: "col-sm-3", label: "ImageID" %>
       <%= f.form_group :copyright, label: { text: "Copyrighted" } do %>
         <%= f.check_box :copyright, label: "" %>
       <% end %>
-      <%= f.text_field :bibid, control_col: "col-sm-3" %>
+      <%= f.select :access, [ ["Campus","campus"], ["Public","public"], [ "Private","private" ] ], { class: "selectpicker" } %>
       <%= f.text_area :title, rows: "3" %>
       <%= f.text_area :publisher %>
-      <%= f.text_field :pub_info %>
-      <%= f.text_field :year, control_col: "col-sm-3" %>
+      <%= f.text_field :pub_info, label: "Pub Info" %>
+      <%= f.date_field :pub_date, label: "Pub Date" %>
       <%= f.text_area :author %>
       <%= f.text_area :description, value: @image.default_desc, rows: "4" %>
       <%= f.text_area :bbox, label: "BBOX (W,S,E,N)"  %>

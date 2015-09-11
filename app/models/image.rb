@@ -1,7 +1,14 @@
 class Image < ActiveRecord::Base
+  self.table_name = 'geodata'
+  default_scope { where(item_type: 'scan') }
+
   validates :title, presence: true
-  validates :bibid, :allow_blank => true, numericality: { only_integer: true,
-    message:"not a valid bidid" }
+
+  validates :access, 
+    presence: true,
+    inclusion: { in: [ 'public', 'campus', 'private' ],
+    message: "%{value} is not a valid access value" }
+
   before_create :set_ark
   after_update :update_ark
 
@@ -20,8 +27,8 @@ class Image < ActiveRecord::Base
       where('title LIKE ? or '\
         'author LIKE ? or '\
         'description LIKE ? or '\
-        'id=? or '\
-        'bibid=? or '\
+        'image_id=? or '\
+        'bib_id=? or '\
         'ark=? ',
         "%#{search}%",
         "%#{search}%",
