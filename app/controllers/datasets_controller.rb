@@ -1,10 +1,15 @@
 class DatasetsController < ApplicationController
-  before_action :set_dataset, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  
+  def auth_user
+    redirect_to '/users/auth/cas' unless user_signed_in?
+  end
 
   # GET /datasets
   # GET /datasets.json
+  # Paging
   def index
-    @datasets = Dataset.all
+    @datasets = Dataset.order("id DESC").search(params[:search]).paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /datasets/1
@@ -42,7 +47,7 @@ class DatasetsController < ApplicationController
   def update
     respond_to do |format|
       if @dataset.update(dataset_params)
-        format.html { redirect_to @dataset, notice: 'Dataset was successfully updated.' }
+        format.html { redirect_to @dataset, notice: 'dataset was successfully updated.' }
         format.json { render :show, status: :ok, location: @dataset }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class DatasetsController < ApplicationController
   def destroy
     @dataset.destroy
     respond_to do |format|
-      format.html { redirect_to datasets_url, notice: 'Dataset was successfully destroyed.' }
+      format.html { redirect_to datasets_url, notice: 'dataset was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class DatasetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dataset_params
-      params.require(:dataset).permit(:id, :ark, :image_id, :guid, :bib_id, :item_type, :file_list, :solr_doc_created, :solr_doc_source, :bbox, :bbox_source, :ingest_geoserver, :ingest_solr, :ingest_loris, :copyright, :access, :title, :publisher, :author, :description, :pub_info, :year)
+      params.require(:dataset).permit(:ark, :bib_id, :dataset_id, :access, :title, :pub_info, :publisher, :author, :pub_date, :description, :add_date, :upd_date, :copyright, :bbox)
     end
 end

@@ -3,7 +3,6 @@
     <h1>Create New Image</h1>
     <hr>
     <%= bootstrap_form_for(@image, layout: :horizontal) do |f| %>
-<!--       <%= f.static_control :ark %> -->
       <%= f.text_field :bib_id, control_col: "col-sm-3" %>
       <%= f.text_field :image_id, control_col: "col-sm-3", label: "ImageID" %>
       <%= f.form_group :copyright, label: { text: "Copyrighted" } do %>
