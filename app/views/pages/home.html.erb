@@ -28,7 +28,7 @@
     <!-- <% end %> -->
     </div>
     <% if can? :access, :rails_admin %>
-      <%= link_to 'admin/user' do %>
+      <%= link_to root_path + 'admin/user' do %>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <%= image_tag "users.png", alt: "100%x200", style: "height: 200px; width: 100%; display: block;", data: { src: "holder.js/100%x200", holder_rendered: "true" } %>
