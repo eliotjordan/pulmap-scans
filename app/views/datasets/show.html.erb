@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">  
+    
+    <h1>Dataset: <%= @dataset.ark %></h1>
+    <hr>  
+    <%= bootstrap_form_for(@dataset, layout: :horizontal) do |f| %>
+      <%= f.static_control :ark, label: "ARK" %>
+      <%= f.static_control :access %>
+      <%= f.static_control :title %>
+      <%= f.static_control :publisher %>
+      <%= f.static_control :pub_info, label: "Pub Info" %>
+      <%= f.static_control :pub_date, label: "Pub Date" %>
+      <%= f.static_control :author %>
+      <%= f.static_control :description %>
+      <% if @dataset.bbox != nil && @dataset.bbox != '' %>
+        <%= f.static_control :bbox, label: "BBOX (W,S,E,N)" %>
+      <% end %>
+      <%= f.static_control label: "Item URL" do %>
+        <%= link_to @dataset.item_url, @dataset.item_url  %>
+      <% end %>
+      <hr>
+      <%= link_to('Back', datasets_path, :class => 'btn btn-primary active', :role => "button")%>
+      <% if can? :update, @dataset %>
+        <%= link_to('Edit', edit_dataset_path(@dataset), :class => 'btn btn-warning active', :role => "button")%>
+        <%= link_to 'Delete', @dataset, method: :delete, data: { confirm: 'Are you sure?' }, :role => "button", :class => 'btn btn-danger active' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

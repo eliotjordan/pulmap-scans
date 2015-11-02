@@ -26,13 +26,13 @@
         <thead>
           <tr>
             <th>
-              ID
-            </th>
-            <th>
               ARK
             </th>
             <th>
-              Bib ID
+              ImageID
+            </th>
+            <th>
+              BibID
             </th>
             <th>
               Title
@@ -48,18 +48,18 @@
           <% @images.each do |image| %>
             <tr data-item-id=<%= "#{image.id}" %> class="item">
               <td>
-                <%= image.id %>
-              </td>
-              <td>
                 <%= image.ark %>
               </td>
               <td class="col-md-1">
-                <%= image.bibid %>
+                <%= image.image_id %>
               </td>
-              <td>
+              <td class="col-md-1">
+                <%= image.bib_id %>
+              </td>
+              <td class="col-md-4">
                 <%= image.title %>
               </td>
-              <td>
+              <td class="col-md-3">
                 <%= image.author %>
               </td>
               <td class="col-md-1">

@@ -1,6 +1,6 @@
-class Image < ActiveRecord::Base
+class Dataset < ActiveRecord::Base
   self.table_name = 'geodata'
-  default_scope { where(item_type: 'scan') }
+  default_scope { where(item_type: 'dataset') }
 
   validates :title, presence: true
 
@@ -11,12 +11,6 @@ class Image < ActiveRecord::Base
 
   before_create :set_ark
   after_update :update_ark
-
-  def default_desc
-    "This map was scanned with a Chroma Tx 40 Plus Wide Format scanner and " \
-    "WIDEimage 2.8 software at 400 DPI in 24-bit color. The image was then " \
-    "reduced to 256 colors."
-  end
 
   def item_url
     ENV['EZID_DEFAULT_RESOLVER'] + self.ark

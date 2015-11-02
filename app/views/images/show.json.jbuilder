@@ -1,1 +1,1 @@
-json.extract! @image, :id, :ark, :bibid, :title, :publisher, :author, :year, :description, :add_date, :upd_date, :copyright, :created_at, :updated_at
+json.extract! @image, :id, :ark, :bib_id, :title, :publisher, :author, :pub_date, :description, :add_date, :upd_date, :copyright, :created_at, :updated_at

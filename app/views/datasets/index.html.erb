@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= form_tag datasets_path, :method => "get", :class => 'form-inline' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search datasets..." %>
+        <span class="input-group-btn">
+          <button class="btn btn-default active" type="submit"><span class="glyphicon glyphicon-search"></button>
+        </span>
+      </div>
+      <%= link_to 'Clear', datasets_path, :role => "button", :class => 'btn btn-default active' %>
+    <% end %>
+  </div>
+  <% if can? :create, @dataset %>
+    <div class="col-sm-6">
+      <%= link_to 'New Dataset', new_dataset_path, :role => "button", :class => 'btn btn-success active pull-right' %>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <table class="table table-bordered table-striped" id="sortable">
+        <thead>
+          <tr>
+            <th>
+              ARK
+            </th>
+            <th>
+              Title
+            </th>
+            <th>
+              Author
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @datasets.each do |dataset| %>
+            <tr data-item-id=<%= "#{dataset.id}" %> class="item">
+              <td>
+                <%= dataset.ark %>
+              </td>
+              <td class="col-md-4">
+                <%= dataset.title %>
+              </td>
+              <td class="col-md-3">
+                <%= dataset.author %>
+              </td>
+              <td class="col-md-1">
+                  <%= link_to 'Show', dataset_path(dataset), :role => "button", :class => 'btn btn-info active' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= will_paginate @datasets, renderer: BootstrapPagination::Rails %>

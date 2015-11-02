@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@dataset, layout: :horizontal) do |f| %>
+  <%= f.static_control :ark, label: "ARK" %>
+  <%= f.select :access, [ ["Campus","campus"], ["Public","public"], [ "Private","private" ] ], { class: "selectpicker" } %>
+  <%= f.text_area :title, rows: "3" %>
+  <%= f.text_area :publisher %>
+  <%= f.date_field :pub_date, label: "Pub Date" %>
+  <%= f.text_area :author %>
+  <%= f.text_area :description, rows: "4" %>
+  <%= f.text_area :bbox, label: "BBBOX (W,S,E,N)" %>
+  <hr>
+  <%= f.primary "Save"%>
+  <%= link_to('Cancel', datasets_path, :class => 'btn btn-default', :role => "button")%>
+<% end %>

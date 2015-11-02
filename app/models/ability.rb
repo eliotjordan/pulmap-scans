@@ -11,8 +11,11 @@ class Ability
     elsif user.role == "editor"
         can :manage, Image
         can :manage, @image
+        can :manage, Dataset
+        can :manage, @dataset
     else
         can :read, Image
+        can :read, Dataset
     end
   end
 end
