@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
 
   # Paging
   def index
-    @images = Image.order("id DESC").search(params[:search]).paginate(:page => params[:page], :per_page => 8)
+    @images = Image.order("id DESC").search(params[:search], params[:search_type]).paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /images/1
@@ -75,6 +75,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:ark, :bib_id, :image_id, :access, :title, :pub_info, :publisher, :author, :pub_date, :description, :add_date, :upd_date, :copyright, :bbox)
+      params.require(:image).permit(:ark, :bib_id, :image_id, :access, :title, :pub_info, :publisher, :author, :pub_date, :description, :add_date, :upd_date, :copyright, :bbox, :search_type)
     end
 end

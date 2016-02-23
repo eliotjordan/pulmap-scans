@@ -22,7 +22,7 @@
         <%= link_to @image.item_url, @image.item_url  %>
       <% end %>
       <hr>
-      <%= link_to('Back', images_path, :class => 'btn btn-primary active', :role => "button")%>
+      <%= link_to('Back', request.env['HTTP_REFERER'], :class => 'btn btn-primary active', :role => "button")%>
       <% if can? :update, @image %>
         <%= link_to('Edit', edit_image_path(@image), :class => 'btn btn-warning active', :role => "button")%>
         <%= link_to 'Delete', @image, method: :delete, data: { confirm: 'Are you sure?' }, :role => "button", :class => 'btn btn-danger active' %>
