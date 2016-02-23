@@ -22,20 +22,30 @@ class Image < ActiveRecord::Base
     ENV['EZID_DEFAULT_RESOLVER'] + self.ark
   end
 
-  def self.search(search)
+  def self.search(search, search_type)
     if search
-      where('title LIKE ? or '\
+      case search_type
+      when 'keyword'
+       where('title LIKE ? or '\
         'author LIKE ? or '\
         'description LIKE ? or '\
-        'image_id=? or '\
-        'bib_id=? or '\
-        'ark=? ',
+        'publisher LIKE ? or ' \
+        'pub_info LIKE ?',
         "%#{search}%",
         "%#{search}%",
         "%#{search}%",
-        "#{search.to_i}",
-        "#{search.to_i}", 
-        "#{search}")
+        "%#{search}%",
+        "%#{search}%")
+      when 'ark'
+        where('ark=? ',
+          "#{search}")
+      when 'bib_id'
+        where('bib_id=? ',
+          "#{search.to_i}")
+      when 'image_id'
+        where('image_id=? ',
+          "#{search.to_i}")
+      end
     else
       all
     end

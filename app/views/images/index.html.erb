@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-6">
-    <%= form_tag images_path, :method => "get", :class => 'form-inline' do %>
+    <%= bootstrap_form_tag(url: images_path, :method => "get", layout: :inline) do |f| %>
+      <%= f.select :search_type, [["Keyword", "keyword"], ["ARK", "ark"], ["ImageID", "image_id"], ["BibID", "bib_id"]], { class: "selectpicker", hide_label: true } %>
       <div class="input-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search scanned maps..." %>
         <span class="input-group-btn">
