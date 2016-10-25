@@ -42,8 +42,7 @@ group :test do
 end
 
 # Use Capistrano for deployment
-gem 'capistrano', '~> 3.4.0'
+gem 'capistrano', '~> 3.4.1'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-passenger'
-gem 'capistrano-rvm'
