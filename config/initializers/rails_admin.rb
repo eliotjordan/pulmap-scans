@@ -1,6 +1,5 @@
 RailsAdmin.config do |config|
-
-  config.current_user_method { current_user } 
+  config.current_user_method { User.find(session[:user_id]) if session[:user_id] }
 
   config.authorize_with :cancan
 
