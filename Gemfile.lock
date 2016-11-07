@@ -65,9 +65,6 @@ GEM
     capistrano-rails (1.1.8)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-rvm (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
@@ -274,11 +271,10 @@ DEPENDENCIES
   bootstrap_form
   byebug
   cancancan (~> 1.10)
-  capistrano (~> 3.4.0)
+  capistrano (~> 3.4.1)
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
-  capistrano-rvm
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
